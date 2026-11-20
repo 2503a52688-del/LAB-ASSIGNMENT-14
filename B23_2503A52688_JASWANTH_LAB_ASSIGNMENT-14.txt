@@ -1,0 +1,331 @@
+LAB ASSIGNMENT-14
+Name: S.JASWANTH
+Roll No: 2503A52688
+
+LAB 14: WEB DESIGN APPLICATION – AI-ASSISTED HTML/CSS/JS GENERATION
+
+Note:
+Create a separate .html file for each task in VS Code. Paste the code, save the file, and open it using Live Server or a browser. HTML pages show their visual output in the browser, not in the VS Code terminal. The output descriptions below are the expected browser results.
+
+TASK-1
+Task: Portfolio Website Design
+Build a personal portfolio website with About Me, Projects, and Contact sections. Use AI to suggest colours and typography, create a responsive layout with Grid/Flexbox, and add smooth-scrolling navigation.
+
+PROMPT:
+Write a simple responsive portfolio website using HTML and CSS. Include About Me, Projects, and Contact sections. Use a blue-and-white colour palette, responsive CSS Grid/Flexbox, and smooth scrolling navigation. Give the complete code in one HTML file.
+
+CODE:
+Save as task1_portfolio.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; color: #243247; background: #f4f7fb; }
+header { background: #183153; color: white; padding: 18px 8%; position: sticky; top: 0; }
+nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+nav a { color: white; text-decoration: none; margin: 8px; }
+section { padding: 55px 8%; min-height: 220px; }
+.hero { background: #dcecff; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 3px 12px #0001; }
+footer { background: #183153; color: white; padding: 20px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<nav>
+<strong>My Portfolio</strong>
+<div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+<section class="hero" id="about">
+<h1>Hello, I'm Ramcharan</h1>
+<p>I am a student interested in programming and web development.</p>
+</section>
+<section id="projects">
+<h2>Projects</h2>
+<div class="cards">
+<div class="card"><h3>College Complaint Portal</h3><p>A web portal for submitting and tracking complaints.</p></div>
+<div class="card"><h3>Student Dashboard</h3><p>A simple dashboard to display student information.</p></div>
+</div>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: student@example.com</p>
+</section>
+<footer>© 2026 My Portfolio</footer>
+</body>
+</html>
+
+OUTPUT:
+Browser displays:
+My Portfolio
+About | Projects | Contact
+Hello, I'm Ramcharan
+I am a student interested in programming and web development.
+Projects:
+- College Complaint Portal
+- Student Dashboard
+Contact:
+Email: student@example.com
+
+Clicking navigation links smoothly moves to the selected section. Project cards adjust to the screen width.
+
+TASK-2
+Task: Online Store Product Page
+Design a product page showing product image, title, price, and Add to Cart button. Use BEM methodology, responsive layout, hover effects, and an Add to Cart alert.
+
+PROMPT:
+Create a responsive online store product page in one HTML file. Show a product image or emoji, title, description, price, and Add to Cart button. Use BEM class names, add a hover effect, and display an alert when the button is clicked.
+
+CODE:
+Save as task2_product.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Store</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f5f6fa; margin: 0; padding: 30px; }
+.product { max-width: 720px; margin: 30px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; background: white; padding: 24px; border-radius: 14px; }
+.product__image { width: 100%; min-height: 220px; display: grid; place-items: center; background: #e8f1ff; border-radius: 10px; font-size: 80px; }
+.product__title { color: #183153; }
+.product__price { font-size: 24px; font-weight: bold; color: #16834a; }
+.product__button { background: #205caa; color: white; border: 0; padding: 12px 18px; border-radius: 7px; cursor: pointer; }
+.product__button:hover { background: #123d76; transform: translateY(-2px); }
+@media (max-width: 600px) { .product { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="product">
+<div class="product__image" role="img" aria-label="Laptop illustration">💻</div>
+<div>
+<h1 class="product__title">Student Laptop</h1>
+<p>Lightweight laptop suitable for study and everyday work.</p>
+<p class="product__price">₹45,000</p>
+<button class="product__button" onclick="addToCart()">Add to Cart</button>
+<p id="message" aria-live="polite"></p>
+</div>
+</main>
+<script>
+function addToCart() {
+  document.getElementById("message").textContent = "Student Laptop added to cart!";
+  alert("Student Laptop added to cart!");
+}
+</script>
+</body>
+</html>
+
+OUTPUT:
+Browser displays:
+Student Laptop
+Lightweight laptop suitable for study and everyday work.
+Price: ₹45,000
+[Add to Cart]
+
+After clicking Add to Cart, alert appears:
+Student Laptop added to cart!
+The same confirmation is displayed below the button.
+
+TASK-3
+Task: Event Registration Form
+Build a conference registration form collecting name, email, phone number, and session selection. Add JavaScript validation, accessible labels and ARIA support, and professional styling.
+
+PROMPT:
+Create a professional conference registration form in one HTML file. Collect full name, email, 10-digit phone number, and session selection. Use labels, HTML validation, JavaScript submit handling, and an accessible success message.
+
+CODE:
+Save as task3_registration.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conference Registration</title>
+<style>
+body { font-family: Arial, sans-serif; background: #eef3f8; padding: 25px; }
+form { max-width: 480px; margin: auto; background: white; padding: 25px; border-radius: 12px; }
+label { display: block; margin-top: 14px; font-weight: bold; }
+input, select { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #9aa8b6; border-radius: 6px; }
+button { margin-top: 20px; padding: 11px 18px; background: #205caa; color: white; border: 0; border-radius: 6px; }
+#status { color: #176b3a; }
+</style>
+</head>
+<body>
+<form id="registrationForm">
+<h1>Conference Registration</h1>
+<label for="name">Full Name</label>
+<input id="name" name="name" type="text" required>
+<label for="email">Email Address</label>
+<input id="email" name="email" type="email" required>
+<label for="phone">Phone Number</label>
+<input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required aria-describedby="phoneHelp">
+<small id="phoneHelp">Enter a 10-digit phone number.</small>
+<label for="session">Choose Session</label>
+<select id="session" name="session" required>
+<option value="">Select a session</option>
+<option>Web Development</option>
+<option>Artificial Intelligence</option>
+<option>Cloud Computing</option>
+</select>
+<button type="submit">Register</button>
+<p id="status" role="status" aria-live="polite"></p>
+</form>
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+  document.getElementById("status").textContent =
+    "Registration successful for " + document.getElementById("name").value + "!";
+});
+</script>
+</body>
+</html>
+
+OUTPUT:
+Example input:
+Full Name: Anu
+Email Address: anu@example.com
+Phone Number: 9876543210
+Choose Session: Cloud Computing
+
+After clicking Register:
+Registration successful for Anu!
+
+If required fields are empty, email is invalid, or phone number is not 10 digits, the browser displays a validation message.
+
+TASK-4
+Task: Resume Website
+Build a one-page online resume with Profile Summary, Skills, Education, and Experience. Use professional typography, CSS Grid, and smooth-scroll navigation.
+
+PROMPT:
+Create a one-page responsive online resume using HTML and CSS. Include Profile Summary, Skills, Education, and Experience. Use a professional font, CSS Grid for alignment, a mobile layout, and smooth scrolling navigation.
+
+CODE:
+Save as task4_resume.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Resume</title>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; color: #263445; background: #f4f7fb; }
+header { background: #173653; color: white; padding: 18px 7%; }
+nav a { color: white; margin-right: 18px; text-decoration: none; }
+main { max-width: 900px; margin: auto; padding: 25px; }
+.resume-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+section { background: white; margin: 15px 0; padding: 20px; border-radius: 10px; }
+h2 { color: #205caa; }
+@media (max-width: 650px) { .resume-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+<h1>Ramcharan – Resume</h1>
+<nav>
+<a href="#profile">Profile</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+</nav>
+</header>
+<main class="resume-grid">
+<div>
+<section id="profile"><h2>Profile Summary</h2><p>B.Tech student interested in software development and technology.</p></section>
+<section id="skills"><h2>Skills</h2><ul><li>Python</li><li>HTML and CSS</li><li>JavaScript basics</li></ul></section>
+</div>
+<div>
+<section id="education"><h2>Education</h2><p>Bachelor of Technology – Computer Science</p><p>SR University</p></section>
+<section id="experience"><h2>Experience</h2><p>Academic projects: College Complaint Portal and student web applications.</p></section>
+</div>
+</main>
+</body>
+</html>
+
+OUTPUT:
+Browser displays:
+Ramcharan – Resume
+Profile Summary: B.Tech student interested in software development and technology.
+Skills: Python, HTML and CSS, JavaScript basics.
+Education: Bachelor of Technology – Computer Science, SR University.
+Experience: Academic projects – College Complaint Portal and student web applications.
+
+Navigation links move to the corresponding resume section. On a narrow screen, the layout changes to one column.
+
+TASK-5
+Task: Restaurant Menu Page
+Design a digital restaurant menu showing menu item names, descriptions, and prices. Use a food-friendly colour palette, responsive card layout, and hover effects.
+
+PROMPT:
+Create a responsive restaurant menu page in one HTML file. Display four food or drink items with names, short descriptions, and prices. Use warm colours, CSS Grid cards, and hover effects.
+
+CODE:
+Save as task5_restaurant.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Menu</title>
+<style>
+body { margin: 0; padding: 25px; font-family: Arial, sans-serif; background: #fff8ed; color: #3b2b20; }
+h1 { text-align: center; color: #8a3d20; }
+.menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; max-width: 950px; margin: 25px auto; }
+.menu__item { background: white; border: 1px solid #ead7c5; border-radius: 12px; padding: 20px; transition: transform .2s, box-shadow .2s; }
+.menu__item:hover { transform: translateY(-5px); box-shadow: 0 6px 16px #0002; }
+.menu__price { color: #23804b; font-weight: bold; font-size: 19px; }
+</style>
+</head>
+<body>
+<h1>Food Corner – Menu</h1>
+<main class="menu">
+<article class="menu__item"><h2>Veg Burger</h2><p>Fresh vegetable patty with lettuce and sauce.</p><p class="menu__price">₹120</p></article>
+<article class="menu__item"><h2>Paneer Pizza</h2><p>Cheese pizza topped with paneer and vegetables.</p><p class="menu__price">₹220</p></article>
+<article class="menu__item"><h2>Masala Dosa</h2><p>Crispy dosa served with potato masala.</p><p class="menu__price">₹90</p></article>
+<article class="menu__item"><h2>Fresh Lime Juice</h2><p>Refreshing lime drink.</p><p class="menu__price">₹50</p></article>
+</main>
+</body>
+</html>
+
+OUTPUT:
+Browser displays:
+Food Corner – Menu
+
+Veg Burger – Fresh vegetable patty with lettuce and sauce – ₹120
+Paneer Pizza – Cheese pizza topped with paneer and vegetables – ₹220
+Masala Dosa – Crispy dosa served with potato masala – ₹90
+Fresh Lime Juice – Refreshing lime drink – ₹50
+
+When the pointer moves over a menu card, it moves slightly upward and displays a shadow. Cards adjust to the screen width.
+
+LAB 14 RESULT:
+Thus, all five AI-assisted web design tasks were prepared using HTML, CSS, and JavaScript. The pages demonstrate responsive layouts, smooth navigation, product interaction, form validation, resume presentation, and restaurant menu cards.
+
+VS CODE RUNNING STEPS:
+1. Open VS Code.
+2. Create a folder named LAB14.
+3. Create the five HTML files using the filenames shown above.
+4. Paste the matching code into each file and save.
+5. Right-click an HTML file and choose Open with Live Server, or open the file in a browser.
+6. Test the buttons and navigation links.
+7. The visual output appears in the browser. The HTML code itself does not print this page output in the terminal.
